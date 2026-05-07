@@ -30,7 +30,7 @@ class WatermarkElement extends HTMLElement {
       span.textContent = text;
       span.style.cssText = `
         display: inline-block;
-        color: rgba(0,0,0,0.07);
+        color: rgba(255,255,255,0.25);
         font-size: 15px;
         font-family: sans-serif;
         transform: rotate(-30deg);
