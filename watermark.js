@@ -1,4 +1,14 @@
 class WatermarkElement extends HTMLElement {
+  static get observedAttributes() {
+    return ['watermark-text'];
+  }
+
+  attributeChangedCallback(name, oldVal, newVal) {
+    if (name === 'watermark-text') {
+      this.buildWatermark(newVal);
+    }
+  }
+
   connectedCallback() {
     this.style.cssText = `
       position: fixed;
@@ -13,7 +23,7 @@ class WatermarkElement extends HTMLElement {
     `;
   }
 
-  setWatermarkText(text) {
+  buildWatermark(text) {
     this.innerHTML = '';
     for (let i = 0; i < 80; i++) {
       const span = document.createElement('span');
